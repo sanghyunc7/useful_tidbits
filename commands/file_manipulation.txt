@@ -1,3 +1,12 @@
 find ./he1000se* -type f -not -name "he1000se-harman*" -delete
 
+for file in arya*.txt; do
+  newfile="he1000se${file#arya}"
+  cp "$file" "$newfile"
+done
+
+# renames all files such that whitespace is replaced with '-'
+rename 's/ /-/g' *.txt
+
+
 
