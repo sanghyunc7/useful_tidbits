@@ -1,0 +1,8 @@
+find . -path ./venv -prune -o -name "*.py" -print | xargs wc -l
+
+find .: Start searching in the current directory.
+-path ./venv -prune: Exclude the venv directory.
+-o: Or operator.
+-name "*.py": Match all .py files.
+-print or -print0: Print the matched files. -print0 prints a null character after each file name.
+xargs wc -l or xargs -0 wc -l: Pass the list of files to wc -l to count the lines. Use -0 with xargs if -print0 is used to handle filenames with special characters or spaces.
